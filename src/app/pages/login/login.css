@@ -1,0 +1,29 @@
+.auth-container {
+  max-width: 350px;
+  margin: 80px auto;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #1e293b;
+  color: white;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4cafef;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}

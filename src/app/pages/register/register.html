@@ -1,0 +1,56 @@
+<div class="auth-container">
+  <h2>Registrarse</h2>
+
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="input-group">
+      <label>Email</label>
+      <input 
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        required
+        #emailRef="ngModel"
+      />
+      <small *ngIf="emailRef.invalid && emailRef.touched">
+        Email inválido
+      </small>
+    </div>
+
+    <div class="input-group">
+      <label>Contraseña</label>
+      <input 
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+        minlength="6"
+        #passRef="ngModel"
+      />
+      <small *ngIf="passRef.invalid && passRef.touched">
+        Mínimo 6 caracteres
+      </small>
+    </div>
+
+    <div class="input-group">
+      <label>Confirmar contraseña</label>
+      <input 
+        type="password"
+        [(ngModel)]="confirmPassword"
+        name="confirmPassword"
+        required
+      />
+    </div>
+
+    <small *ngIf="password !== confirmPassword && confirmPassword">
+      Las contraseñas no coinciden
+    </small>
+
+    <button type="submit">Registrarse</button>
+
+  </form>
+
+  <p>
+    ¿Ya tenés cuenta? <a routerLink="/login">Iniciar sesión</a>
+  </p>
+</div>
