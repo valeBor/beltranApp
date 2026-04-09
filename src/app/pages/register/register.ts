@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
@@ -10,28 +10,40 @@ import { RouterModule, Router } from '@angular/router';
   templateUrl: './register.html',
   styleUrl: './register.css'
 })
-export class Register {
+export class Register implements OnInit {
 
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
 
+  message: string = '';
+  error: string = '';
+
   constructor(private router: Router) {}
+
+  ngOnInit() {
+    const user = localStorage.getItem('user');
+
+    if (user) {
+      this.router.navigate(['/home']);
+    }
+  }
 
   onSubmit() {
 
-    // validación básica
-    if (!this.email || !this.password) {
-      console.log('Campos incompletos');
+    this.message = '';
+    this.error = '';
+
+    if (!this.email || !this.password || !this.confirmPassword) {
+      this.error = 'Completar todos los campos';
       return;
     }
 
     if (this.password !== this.confirmPassword) {
-      console.log('Las contraseñas no coinciden');
+      this.error = 'Las contraseñas no coinciden';
       return;
     }
 
-    // 🔥 FETCH AL BACKEND
     fetch('http://localhost:3000/api/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -42,13 +54,27 @@ export class Register {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data);
 
-      // redirigir al login
-      this.router.navigate(['/login']);
+      if (data.message === 'Usuario creado') {
+
+        this.message = 'Registrado con éxito';
+
+        // limpiar formulario
+        this.email = '';
+        this.password = '';
+        this.confirmPassword = '';
+
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 1000);
+
+      } else {
+        this.error = data.message;
+      }
+
     })
-    .catch(error => {
-      console.error('Error:', error);
+    .catch(() => {
+      this.error = 'Error al registrar';
     });
   }
 }

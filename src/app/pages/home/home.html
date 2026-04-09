@@ -3,8 +3,11 @@
   <h1>Bienvenido a Beltrán App</h1>
 
   <div *ngIf="user; else noLogeado">
-    <p>Bienvenido </p>
+    <p> </p>
     <p>{{ user.email }}</p>
+    <div>
+      <p><img src="assets/logoApp.jpg" alt="" class="img_logo_app"></p>
+    </div>
 
     <button (click)="logout()">Cerrar sesión</button>
   </div>

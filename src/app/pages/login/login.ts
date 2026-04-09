@@ -15,16 +15,21 @@ export class Login {
   email: string = '';
   password: string = '';
 
+  message: string = '';
+  error: string = '';
+
   constructor(private router: Router) {}
 
   onSubmit() {
 
+    this.message = '';
+    this.error = '';
+
     if (!this.email || !this.password) {
-      console.log('Campos incompletos');
+      this.error = 'Completar todos los campos';
       return;
     }
 
-    //
     fetch('http://localhost:3000/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -35,16 +40,31 @@ export class Login {
     })
     .then(res => res.json())
     .then(data => {
-      localStorage.setItem('user',JSON.stringify({email: this.email,role:data.role} ));
 
-      // redirigir después del login
-      this.router.navigate(['/home']);
+      if (data.message === 'Login OK') {
+
+        localStorage.setItem('user', JSON.stringify({
+          email: data.email,
+          role: data.role
+        }));
+
+        this.message = 'Login correcto';
+
+        // limpiar
+        this.email = '';
+        this.password = '';
+
+        setTimeout(() => {
+          this.router.navigate(['/home']);
+        }, 1000);
+
+      } else {
+        this.error = data.message;
+      }
+
     })
-    .catch(error => {
-      console.error('Error:', error);
+    .catch(() => {
+      this.error = 'Error de conexión con el servidor';
     });
   }
 }
-
-
-

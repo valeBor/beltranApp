@@ -1,0 +1,49 @@
+.home {
+  text-align: center;
+  padding: 30px;
+  color: white;
+}
+
+/* Título */
+.home h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* Email */
+.home p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* Imagen */
+.img_logo_app {
+  width: 220px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Botón */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1e88e5; /* azul */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover */
+button:hover {
+  background-color: #1565c0;
+}
+
+
+
+
+
