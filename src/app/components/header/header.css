@@ -8,8 +8,17 @@
 }
 
 .logo {
-  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
   font-weight: bold;
+}
+
+
+.logo-img{
+  height: 40px;
+  width: auto;
 }
 
 nav{
