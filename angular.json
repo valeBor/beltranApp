@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "mi-app-collectSun": {
+    "beltranapp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mi-app-collectSun:build:production"
+              "buildTarget": "beltranapp:build:production"
             },
             "development": {
-              "buildTarget": "mi-app-collectSun:build:development"
+              "buildTarget": "beltranapp:build:development"
             }
           },
           "defaultConfiguration": "development"

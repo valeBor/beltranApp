@@ -1,13 +1,25 @@
 
 
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router'; // 👈 FALTA ESTO
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule], // 👈 Y ESTO
+  imports: [RouterModule], 
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+
+  constructor(private router:Router){}
+
+logout(){
+localStorage.removeItem('user');
+this.router.navigate(['/login'])
+
+}
+
+
+
+}

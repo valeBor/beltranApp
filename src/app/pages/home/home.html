@@ -1,8 +1,16 @@
-
-
 <div class="home">
-  <h1>Bienvenido a Beltrán App</h1>
-  <p>Gestioná tu vida académica de forma simple</p>
 
-  
+  <h1>Bienvenido a Beltrán App</h1>
+
+  <div *ngIf="user; else noLogeado">
+    <p>Bienvenido </p>
+    <p>{{ user.email }}</p>
+
+    <button (click)="logout()">Cerrar sesión</button>
+  </div>
+
+  <ng-template #noLogeado>
+    <p>No estás logueado</p>
+  </ng-template>
+
 </div>

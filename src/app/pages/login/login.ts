@@ -24,7 +24,7 @@ export class Login {
       return;
     }
 
-    // 🔥 ACA VA EL FETCH
+    //
     fetch('http://localhost:3000/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -35,7 +35,7 @@ export class Login {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      localStorage.setItem('user',JSON.stringify({email: this.email,role:data.role} ));
 
       // redirigir después del login
       this.router.navigate(['/home']);
