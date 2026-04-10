@@ -1,5 +1,12 @@
 <div class="auth-container">
   <h2>Iniciar sesión</h2>
+  <p style="text-align:center; margin-bottom: 15px;">
+  Bienvenidos a Beltrán App
+</p>
+
+<p style="text-align:center; font-size: 14px; color: gray;">
+  Ingresá tus datos para acceder a tu cuenta
+</p>
 
   <p *ngIf="message" style="color: green">{{ message }}</p>
   <p *ngIf="error" style="color: red">{{ error }}</p>
@@ -22,11 +29,12 @@
       </small>
     </div>
 
-    <button type="submit">Ingresar</button>
+    <button type="submit" class="btn-login">Ingresar</button>
 
   </form>
 
   <p>
     ¿No tenés cuenta? <a routerLink="/register">Registrarse</a>
   </p>
+
 </div>
