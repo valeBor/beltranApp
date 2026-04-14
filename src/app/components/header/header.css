@@ -3,42 +3,52 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #111;
-  color: white;
+  background: white;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
 }
 
-.logo {
+.logo-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: white;
-  font-weight: bold;
 }
 
-
-
-
-.logo-img {
+.logo-small {
   width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
 }
 
-nav{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav a {
-  margin-left: 20px;
+nav a {
+  margin: 0 10px;
   text-decoration: none;
+  color: #333;
+}
+
+nav a:hover {
+  color: #28a745;
+}
+
+button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  background: linear-gradient(90deg, #28a745, #00c896);
   color: white;
-  font-weight: 500;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.nav a:hover {
-  color: #f5c542;
+.welcome {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
 }

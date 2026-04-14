@@ -1,50 +1,37 @@
 .home {
   text-align: center;
-  padding: 30px;
-  color: white;
+  padding: 40px;
 }
 
-/* Título */
-.home h1 {
-  font-size: 32px;
+.subtitle {
+  color: gray;
   margin-bottom: 20px;
 }
 
-/* Email */
-.home p {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-/* Imagen */
-.img_logo_app {
-  width: 220px;
-  margin: 20px auto;
-  display: block;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  text-align: center;
-}
-
-/* Botón */
-button {
-  margin-top: 20px;
+.btn {
+  display: inline-block;
+  margin-top: 15px;
   padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #1e88e5; /* azul */
+  background: linear-gradient(90deg, #28a745, #00c896);
   color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-/* Hover */
-button:hover {
-  background-color: #1565c0;
+  border-radius: 10px;
+  text-decoration: none;
+  border: none;
 }
 
 
+
+
+
+.btn:hover {
+  background: #218838;
+}
+
+@media (max-width: 600px) {
+  .home {
+    padding: 20px;
+  }
+}
 
 
 

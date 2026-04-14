@@ -1,28 +1,26 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common'; // 👈 IMPORTANTE
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule], // 👈 IMPORTANTE
   templateUrl: './home.html',
-  styleUrl: './home.css',
+  styleUrl: './home.css'
 })
 export class Home implements OnInit {
-  user:any=null;
 
-  ngOnInit() { 
-    const data=localStorage.getItem('user');
-    this.user=data? JSON.parse(data):null;
-    
+  user: any;
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    const data = localStorage.getItem('user');
+    this.user = data ? JSON.parse(data) : null;
   }
 
-  logout(){
-    localStorage.removeItem('user');
-    this.user=null;
-
+  goLogin() { // 👈 ESTA FUNCIÓN FALTABA
+    this.router.navigate(['/login']);
   }
- 
-
-
 }

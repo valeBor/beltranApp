@@ -1,40 +1,55 @@
-<div class="auth-container">
-  <h2>Iniciar sesión</h2>
-  <p style="text-align:center; margin-bottom: 15px;">
-  Bienvenidos a Beltrán App
-</p>
+<div class="login-container">
 
-<p style="text-align:center; font-size: 14px; color: gray;">
-  Ingresá tus datos para acceder a tu cuenta
-</p>
+  <div class="card">
 
-  <p *ngIf="message" style="color: green">{{ message }}</p>
-  <p *ngIf="error" style="color: red">{{ error }}</p>
-
-  <form (ngSubmit)="onSubmit()">
-
-    <div class="input-group">
-      <label>Email</label>
-      <input type="email" [(ngModel)]="email" name="email" required #emailRef="ngModel" />
-      <small *ngIf="emailRef.invalid && emailRef.touched">
-        Email inválido
-      </small>
+    <div class="logo">
+      <img src="assets/logoWorkTrack.png" alt="WorkTrack logo">
+      <h1>Work<span>Track</span></h1>
+      <p>Control de asistencia con QR</p>
     </div>
 
-    <div class="input-group">
-      <label>Contraseña</label>
-      <input type="password" [(ngModel)]="password" name="password" required minlength="6" #passRef="ngModel" />
-      <small *ngIf="passRef.invalid && passRef.touched">
-        Mínimo 6 caracteres
-      </small>
-    </div>
+    <h2>¡Bienvenido!</h2>
+    <p class="subtitle">Ingresá tus datos para continuar</p>
 
-    <button type="submit" class="btn-login">Ingresar</button>
+    <!-- MENSAJES -->
+    <p *ngIf="message" class="success">{{ message }}</p>
+    <p *ngIf="error" class="error">{{ error }}</p>
 
-  </form>
+    <form (ngSubmit)="onSubmit()">
 
-  <p>
-    ¿No tenés cuenta? <a routerLink="/register">Registrarse</a>
-  </p>
+      <div class="input-group">
+        <label>Email</label>
+        <input 
+          type="email" 
+          [(ngModel)]="email" 
+          name="email" 
+          required 
+        />
+      </div>
+
+      <div class="input-group">
+        <label>Contraseña</label>
+        <input 
+          type="password" 
+          [(ngModel)]="password" 
+          name="password" 
+          required 
+        />
+      </div>
+
+      <button type="submit">Ingresar</button>
+
+    </form>
+
+    <p class="register">
+      ¿No tenés cuenta?
+      <a routerLink="/register">Registrarse</a>
+    </p>
+
+    <p class="footer">
+      ✔ Seguro · Rápido · Con QR
+    </p>
+
+  </div>
 
 </div>

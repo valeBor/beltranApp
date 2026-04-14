@@ -1,37 +1,30 @@
-<div class="home" style="text-align: center; margin-top: 40px;">
+<div class="home">
 
-  <h1>Bienvenido a Beltrán App</h1>
+  <h1 class="title">
+    Work<span>Track</span>
+  </h1>
 
+  <p class="subtitle">
+    Control de asistencia con QR
+  </p>
 
-  <div *ngIf="user; else noLogeado">
+  <!-- SI ESTÁ LOGUEADO -->
+  <div *ngIf="user; else noLogin">
 
-    <p style="font-size: 18px;">¡Hola!</p>
-    <p><strong>{{ user.email }}</strong></p>
-
-    <div>
-      <img src="assets/logoApp.jpg" alt="" class="img_logo_app" style="width:150px">
-    </div>
-
-    <button (click)="logout()" class="btn-logout">
-      Cerrar sesión
-    </button>
+    <h2>Bienvenido {{ user.email }}</h2>
+    <p>Ya podés registrar tu asistencia</p>
 
   </div>
 
-  <ng-template #noLogeado>
+  <!-- SI NO ESTÁ LOGUEADO -->
+  <ng-template #noLogin>
 
-    <p style="font-size: 18px;">No estás logueado</p>
-    
-    <img src="assets/hola.jpg" alt="login" style="width: 120px; margin: 15px 0;">
-    
-    
+    <p>No estás logueado</p>
 
-    <p style="color: gray; margin-bottom: 20px;">
-      Iniciá sesión o registrate para comenzar
-    </p>
+    <button (click)="goLogin()" class="btn">
+      Ir a Login
+    </button>
 
   </ng-template>
-
-
 
 </div>

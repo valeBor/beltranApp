@@ -1,29 +1,134 @@
+/* Fondo general */
 .auth-container {
-  max-width: 350px;
-  margin: 80px auto;
-  padding: 30px;
-  border-radius: 10px;
-  background-color: #1e293b;
-  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa, #e4efe9);
+  padding: 10px; /* 👈 evita que toque bordes */
+  font-family: Arial, sans-serif;
 }
 
-.input-group {
+/* Card */
+.card {
+  background: white;
+  padding: 22px; /* 👈 antes 30 */
+  border-radius: 18px;
+  width: 100%;
+  max-width: 300px; /* 👈 clave */
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Logo */
+.logo {
+  width: 50px; /* 👈 antes 70 */
+  margin-bottom: 5px;
+}
+
+/* Título */
+h2 {
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Subtítulo */
+.subtitle {
+  font-size: 13px;
+  color: gray;
   margin-bottom: 15px;
+}
+
+/* Inputs */
+.input-group {
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.input-group label {
+  font-size: 12px;
+  color: #555;
 }
 
 .input-group input {
   width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: none;
+  padding: 10px; /* 👈 compacto */
+  margin-top: 4px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 13px;
+  transition: 0.2s;
 }
 
-button {
+.input-group input:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 5px rgba(40,167,69,0.3);
+}
+
+/* Validaciones */
+small {
+  color: #dc3545;
+  font-size: 11px;
+}
+
+/* Botón */
+.btn-main {
   width: 100%;
-  padding: 10px;
-  background-color: #4cafef;
+  padding: 10px; /* 👈 antes 12 */
   border: none;
-  border-radius: 5px;
+  background: linear-gradient(90deg, #28a745, #00c896);
   color: white;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: bold;
+  margin-top: 8px;
+  transition: 0.3s;
+}
+
+.btn-main:hover {
+  transform: scale(1.02);
+  opacity: 0.95;
+}
+
+/* Links */
+.link {
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.link a {
+  color: #28a745;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Mensajes */
+.success {
+  color: #28a745;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.error {
+  color: #dc3545;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .card {
+    max-width: 280px;
+    padding: 18px;
+  }
+
+  .logo {
+    width: 45px;
+  }
+
+  h2 {
+    font-size: 17px;
+  }
 }
