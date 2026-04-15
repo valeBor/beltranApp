@@ -2,10 +2,33 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
+const fetch = require('node-fetch');
 
 // REGISTER
 router.post('/register', async (req, res) => {
-  let { email, password } = req.body;
+  let { email, password, captchaToken } = req.body;
+
+  if (!captchaToken) {
+  return res.json({ message: 'Falta completar el captcha' });
+}
+const secretKey = '0x4AAAAAAC9z5AwK0vgOUqjg7FzN9VzcLQo';
+
+const formData = new URLSearchParams();
+formData.append('secret', secretKey);
+formData.append('response', captchaToken);
+
+const cloudflareResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+  method: 'POST',
+  body: formData
+});
+
+const cloudflareData = await cloudflareResponse.json();
+
+if (!cloudflareData.success) {
+  return res.json({ message: 'Captcha inválido' });
+}
+
+
 
   // 🔴 NORMALIZAR
   email = email.toLowerCase().trim();
